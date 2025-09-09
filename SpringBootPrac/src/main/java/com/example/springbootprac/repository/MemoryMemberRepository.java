@@ -7,7 +7,7 @@ import java.util.*;
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
-    private static long sequence = 0L;
+    private static long sequence = 0L; //시퀀스는 0 1 2 키값을 생성해줌
 
     @Override
     public Member save(Member member) {
@@ -22,12 +22,14 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> findByEmail(String name) {
-        return Optional.empty();
+    public Optional<Member> findByName(String name) {
+        return store.values().stream()
+                .filter(member -> member.getName().equals(name))
+                .findAny();
     }
 
     @Override
     public List<Member> findAll() {
-        return List.of();
+        return new ArrayList<>(store.values());
     }
 }
