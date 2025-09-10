@@ -13,7 +13,7 @@ public class MemoryMemberRepositoryTest {
 
     @AfterEach
     public void afterEach(){
-        repository.clearStore();//테스트가 실행이되고 끝날떄마다 레포지토리 (저장소)를 다지움 
+        repository.clearStore();//테스트가 실행이되고 끝날떄마다 레포지토리 (저장소)를 다지움
     }
     @Test
     public void save(){
